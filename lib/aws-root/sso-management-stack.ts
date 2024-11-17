@@ -82,7 +82,6 @@ export class SSOManagementStack extends cdk.Stack {
     //#endregion
 
     //#region ASSIGN TESTER PERMISSION
-    this.AssignPermission(testerPs, testers, AWS_ACCOUNTS.tooling);
     this.AssignPermission(testerPs, testers, AWS_ACCOUNTS.develop);
     this.AssignPermission(testerPs, testers, AWS_ACCOUNTS.prod);
     //#endregion
