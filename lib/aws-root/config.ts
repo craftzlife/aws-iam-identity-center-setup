@@ -1,0 +1,1 @@
+export const ROOT_IDENTITY_STORE: string = 'd-9667426e97'

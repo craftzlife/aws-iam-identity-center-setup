@@ -1,8 +1,8 @@
 {
-  "name": "aws-access-control",
+  "name": "aws-sso-automation",
   "version": "0.1.0",
   "bin": {
-    "aws-access-control": "bin/aws-access-control.js"
+    "app": "bin/app.js"
   },
   "scripts": {
     "build": "tsc",
