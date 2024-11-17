@@ -50,16 +50,16 @@ export class SSOManagementStack extends cdk.Stack {
         'arn:aws:iam::aws:policy/AdministratorAccess'
       ]
     });
-    const developerPs = new cdk.aws_sso.CfnPermissionSet(this, 'DeveloperPs', {
-      name: 'Developer',
+    const systemAdminPs = new cdk.aws_sso.CfnPermissionSet(this, 'SystemAdminPs', {
+      name: 'SystemAdmin',
       instanceArn: SSO_INSTANCE.ssoInstanceArn,
       sessionDuration: 'PT12H',
       managedPolicies: [
         'arn:aws:iam::aws:policy/job-function/SystemAdministrator'
       ]
     });
-    const testerPs = new cdk.aws_sso.CfnPermissionSet(this, 'TesterPs', {
-      name: 'Tester',
+    const readOnlyPs = new cdk.aws_sso.CfnPermissionSet(this, 'ReadOnlyPs', {
+      name: 'ReadOnly',
       instanceArn: SSO_INSTANCE.ssoInstanceArn,
       sessionDuration: 'PT12H',
       managedPolicies: [
@@ -76,14 +76,15 @@ export class SSOManagementStack extends cdk.Stack {
     //#endregion
 
     //#region ASSIGN DEVELOPER PERMISSION
-    this.AssignPermission(developerPs, developers, AWS_ACCOUNTS.tooling);
-    this.AssignPermission(developerPs, developers, AWS_ACCOUNTS.develop);
-    this.AssignPermission(developerPs, developers, AWS_ACCOUNTS.prod);
+    this.AssignPermission(systemAdminPs, developers, AWS_ACCOUNTS.tooling);
+    this.AssignPermission(systemAdminPs, developers, AWS_ACCOUNTS.develop);
+    this.AssignPermission(systemAdminPs, developers, AWS_ACCOUNTS.prod);
     //#endregion
 
     //#region ASSIGN TESTER PERMISSION
-    this.AssignPermission(testerPs, testers, AWS_ACCOUNTS.develop);
-    this.AssignPermission(testerPs, testers, AWS_ACCOUNTS.prod);
+    this.AssignPermission(readOnlyPs, testers, AWS_ACCOUNTS.tooling);
+    this.AssignPermission(readOnlyPs, testers, AWS_ACCOUNTS.develop);
+    this.AssignPermission(readOnlyPs, testers, AWS_ACCOUNTS.prod);
     //#endregion
   }
 
