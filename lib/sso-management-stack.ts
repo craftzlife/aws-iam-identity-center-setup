@@ -1,6 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { AWS_ACCOUNTS, ROOT_IDENTITY_STORE, SSO_INSTANCE } from '../app-config';
+import { AWS_ACCOUNTS, ROOT_IDENTITY_STORE, SSO_INSTANCE } from './app-config';
 import { PrincipalType } from './types';
 
 export class SSOManagementStack extends cdk.Stack {

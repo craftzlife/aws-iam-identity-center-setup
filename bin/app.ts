@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
-import { SSOManagementStack, SSO_INSTANCE } from '../lib/aws-root/sso-management-stack';
+import { SSOManagementStack, SSO_INSTANCE } from '../lib/sso-management-stack';
 import * as cdk from 'aws-cdk-lib';
 import * as Tagging from './tagging';
 
