@@ -1,22 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { ROOT_IDENTITY_STORE } from './config';
+import { AWS_ACCOUNTS, ROOT_IDENTITY_STORE, SSO_INSTANCE } from '../app-config';
 import { PrincipalType } from './types';
-
-//#region AWS ACCOUNTS
-const AWS_ACCOUNTS = {
-  'aws-root': '462599156704',
-  'develop': '941377147791',
-  'prod': '825765401882',
-  'tooling': '475174330998',
-};
-//#endregion
-
-export const SSO_INSTANCE = {
-  account: '462599156704',
-  region: 'ap-southeast-1',
-  ssoInstanceArn: 'arn:aws:sso:::instance/ssoins-8210ca2c9e29612f',
-};
 
 export class SSOManagementStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
