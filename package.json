@@ -7,7 +7,10 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "cdk:synth": "cdk synth -profiles rot",
+    "cdk:diff": "cdk diff --profile root",
+    "cdk:deploy": "cdk deploy --profile root"
   },
   "devDependencies": {
     "@types/node": "22.5.4",
